@@ -1,0 +1,13 @@
+services:
+  crud-app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: crud_app
+    ports:
+      - "8080:8080"
+    environment:
+      - DB_PATH=/app/data/banco
+    volumes:
+      - ./src/data:/app/data
+    restart: unless-stopped
